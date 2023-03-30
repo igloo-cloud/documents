@@ -43,7 +43,7 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/agency/public/email_ve
 | password  | string  | true | Password  |
 | phone.area_code  | string  | true | Phone area code, eg: +63  |
 | phone.number  | string  | true | Phone number  |
-| date_of_birth  | unix  | false | Date of birth  |
+| date_of_birth  | uint64  | false | Date of birth(unix)  |
 
 
 #### Response
@@ -233,7 +233,7 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | Name  | Type | Required | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | name  | string | true | Name |
-| date_of_birth  | uint64(unix) | true | Date of birth |
+| date_of_birth  | uint64 | true | Date of birth(unix) |
 | gender  | string(male,female) | true | Gender |
 | breed  | string | true | Breed |
 | color  | string | true | Color |
@@ -246,7 +246,7 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | middle_name  | string | true | Middle name |
 | last_name  | string | true | Last name |
 | given_names  | string | true | Given names |
-| date_of_birth  | uint64(unix) | true | Date of birth |
+| date_of_birth  | uint64 | true | Date of birth(unix) |
 | gender  | string(male,female) | true | Gender |
 | id_type  | string | true | Id type, eg: `Philippine Passport`,`SSS ID or SSS UMID Card`,`GSIS ID or GSIS UMID Card`,`Driver's License`,`PRC ID` |
 | id_number  | string | true | Id number |
