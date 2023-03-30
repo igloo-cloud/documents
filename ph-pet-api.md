@@ -34,7 +34,7 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/agency/public/email_ve
 | last_name  | string  | false | Last name  |
 | first_name  | string  | false | First name  |
 | password  | string  | true | Password  |
-| phone.area_code  | string  | true | Area code of phone, eg: 63  |
+| phone.area_code  | string  | true | Area code of phone, eg: +63  |
 | phone.number  | string  | true | Number of phone  |
 | date_of_birth  | unix  | false | Date of birth  |
 
@@ -55,7 +55,7 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/public/agent/sign-up
     "given_names": "Igloo",
     "last_name": "Great",
     "phone": {
-        "area_code": "63",
+        "area_code": "+63",
         "number": "123443211221"
     },
     "password": "p@ssword01",
