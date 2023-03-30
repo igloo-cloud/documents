@@ -225,7 +225,7 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | Name  | Type | Required | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | name  | string | true | Name |
-| date_of_birth  | uint64(unixmill) | true | Date of birth |
+| date_of_birth  | uint64(unixmilli) | true | Date of birth |
 | gender  | string(male,female) | true | Gender |
 | breed  | string | true | Breed |
 | color  | string | true | Color |
@@ -238,7 +238,7 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | middle_name  | string | true | Middle name |
 | last_name  | string | true | Last name |
 | given_names  | string | true | Given names |
-| date_of_birth  | uint64(unixmill) | true | Date of birth |
+| date_of_birth  | uint64(unixmilli) | true | Date of birth |
 | gender  | string(male,female) | true | Gender |
 | id_type  | string | true | Id type, eg: `Philippine Passport`,`SSS ID or SSS UMID Card`,`GSIS ID or GSIS UMID Card`,`Driver's License`,`PRC ID` |
 | id_number  | string | true | Id number |
