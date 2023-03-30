@@ -120,7 +120,7 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | ------------- | ------------- | ------------- |
 | message  | string  | Error message: If no error occurs, an empty string will be returned. |
 | code  | string  | Error code: If no error occurs, an empty string will be returned.  |
-| plans  | [Plan]  | Plans, it's an array  |
+| plans  | [Plan]  | Plans: This is an array of plan options.  |
 
 #### Response.Plan
 | Name  | Type | Description |
