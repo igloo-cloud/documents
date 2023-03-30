@@ -36,7 +36,7 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/agency/public/email_ve
 | password  | string  | true | Password  |
 | phone.area_code  | string  | true | Area code of phone, eg: 63  |
 | phone.number  | string  | true | Number of phone  |
-| date_of_birth  | string  | false | yyyy-MM-dd  |
+| date_of_birth  | unix  | false | Date of birth  |
 
 
 #### Response
@@ -59,7 +59,7 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/public/agent/sign-up
         "number": "123443211221"
     },
     "password": "p@ssword01",
-    "date_of_birth": "2000-01-01"
+    "date_of_birth": 950770010
 }
 ```
 
@@ -225,7 +225,7 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | Name  | Type | Required | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | name  | string | true | Name |
-| date_of_birth  | uint64(unixmilli) | true | Date of birth |
+| date_of_birth  | uint64(unix) | true | Date of birth |
 | gender  | string(male,female) | true | Gender |
 | breed  | string | true | Breed |
 | color  | string | true | Color |
@@ -238,7 +238,7 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | middle_name  | string | true | Middle name |
 | last_name  | string | true | Last name |
 | given_names  | string | true | Given names |
-| date_of_birth  | uint64(unixmilli) | true | Date of birth |
+| date_of_birth  | uint64(unix) | true | Date of birth |
 | gender  | string(male,female) | true | Gender |
 | id_type  | string | true | Id type, eg: `Philippine Passport`,`SSS ID or SSS UMID Card`,`GSIS ID or GSIS UMID Card`,`Driver's License`,`PRC ID` |
 | id_number  | string | true | Id number |
@@ -275,7 +275,7 @@ Request
     "application": {
         "object": {
             "name": "Hoo",
-            "date_of_birth": 1580193991365,
+            "date_of_birth": 1580193991,
             "gender": "male",
             "breed": "Ju",
             "color": "Red",
@@ -289,7 +289,7 @@ Request
             "last_name": "hh",
             "given_names": "hh",
             "gender": "male",
-            "date_of_birth": 950770010428,
+            "date_of_birth": 950770010,
             "id_type": "Philippine Passport",
             "id_number": "1",
             "phone": {
@@ -312,11 +312,11 @@ Response
         "display_id": "20230330IGPET3M0014",
         "coi_doc": "",
         "coi_no": "K0011641",
-        "created_at": 1680164967000,
-        "updated_at": 1680164968000,
+        "created_at": 1680164967,
+        "updated_at": 1680164968,
         "object": {
             "name": "Hoo",
-            "date_of_birth": 1580193991365,
+            "date_of_birth": 1580193991,
             "gender": "male",
             "breed": "Ju",
             "color": "Red",
@@ -330,7 +330,7 @@ Response
             "last_name": "hh",
             "first_name": "Hh",
             "middle_name": "hh",
-            "date_of_birth": 950770010428,
+            "date_of_birth": 950770010,
             "email": "jinlong.chen@iglooinsure.com",
             "mobile_number": {
                 "area_code": "+63",
