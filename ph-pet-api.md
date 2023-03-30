@@ -268,14 +268,14 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | policy.premium.add_on  | string | Premium of add on |
 | policy.premium.tax  | string | Tax |
 | policy.state  | string | State of a policy  |
-| policy.periods.policy.start_time  | string | Start time of the policy  |
-| policy.periods.policy.end_time  | string | End time of the policy  |
-| policy.periods.waiting.period  | string | Waiting period  |
+| policy.periods.policy.start_time  | uint64 | Start time(unix) of the policy  |
+| policy.periods.policy.end_time  | uint64 | End time(unix) of the policy  |
+| policy.periods.waiting.period  | string | Waiting period, eg: "14d" refers to a 14-day period, while "1m" indicates a one-month duration.  |
 | policy.periods.coverage.period  | string | Coverage period  |
-| policy.periods.coverage.start_time  | string | Start time of the coverage  |
-| policy.periods.coverage.end_time  | string | End time of the coverage  |
-| policy.periods.claim.start_time  | string | Start time of the claim  |
-| policy.periods.claim.end_time  | string | End time of the claim  |
+| policy.periods.coverage.start_time  | uint64 | Start time(unix) of the coverage  |
+| policy.periods.coverage.end_time  | uint64 | End time(unix) of the coverage  |
+| policy.periods.claim.start_time  | uint64 | Start time(unix) of the claim  |
+| policy.periods.claim.end_time  | uint64 | End time(unix) of the claim  |
 
 Request
 ```json
@@ -355,8 +355,8 @@ Response
         "state": "PolicyInit",
         "periods": {
             "policy": {
-                "start_time": 1680251368000,
-                "end_time": 1688200168000
+                "start_time": 1680251368,
+                "end_time": 1688200168
             },
             "waiting": {
                 "period": "14d"
