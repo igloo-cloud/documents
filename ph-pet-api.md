@@ -1,17 +1,25 @@
-# Philippine pet insurance API(`DRAFT` 0.0.1)
+# `IGNITE` Philippine pet insurance API(`DRAFT` 0.0.1)
+
+## Summary
+1. In order to acquire pet insurance, it is necessary to create an Ignite Agent account. You can either request assistance from Igloo to set up the account, or opt to complete the registration process independently.
+2. During the registration process for an agent account, be sure to provide an accurate phone number, as it will be used for logging in to your account.
+3. Once you have successfully logged in using your phone number, you will receive a token that can be utilized for making purchases.
+4. Prior to purchasing, you have the option to obtain a preliminary quote with minimal information. Alternatively, you can proceed directly to the buying process if you prefer.
+5. To utilize the FastQuote and Application APIs, ensure that you provide the Token acquired from the login API within the HTTP header of your request.
+
 
 ## Send a verification code to an email
 
 #### Request
 | Name  | Type | Required | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| email  | string  | true | Email address to be verified  |
+| email  | string  | true | Email address awaiting verification  |
 
 #### Response
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| message  | string  | Error message, an empty string will be returned if there is no error |
-| code  | string  | Error code, an empty string will be returned if there is no error  |
+| message  | string  | Error message: If no error occurs, an empty string will be returned. |
+| code  | string  | Error code: If no error occurs, an empty string will be returned.  |
 
 ```
 POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/agency/public/email_verification/send_code
@@ -29,21 +37,21 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/agency/public/email_ve
 | Name  | Type | Required | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | email  | string  | true | Email address  |
-| verification_code  | true | string  | Verification code of email address  |
+| verification_code  | true | string  | Email address verification code  |
 | given_names  | string  | false | Given names  |
 | last_name  | string  | false | Last name  |
 | first_name  | string  | false | First name  |
 | password  | string  | true | Password  |
-| phone.area_code  | string  | true | Area code of phone, eg: +63  |
-| phone.number  | string  | true | Number of phone  |
+| phone.area_code  | string  | true | Phone area code, eg: +63  |
+| phone.number  | string  | true | Phone number  |
 | date_of_birth  | unix  | false | Date of birth  |
 
 
 #### Response
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| message  | string  | Error message, an empty string will be returned if there is no error |
-| code  | string  | Error code, an empty string will be returned if there is no error  |
+| message  | string  | Error message: If no error occurs, an empty string will be returned. |
+| code  | string  | Error code: If no error occurs, an empty string will be returned.  |
 
 ```
 POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/public/agent/sign-up
@@ -68,15 +76,15 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/public/agent/sign-up
 | Name  | Type | Required | Description |
 | ------------- | ------------- | ------------- | ------------- |
 | password  | string  | true | Password  |
-| phone.area_code  | string  | true | Area code of phone, eg: +63  |
-| phone.number  | string  | true | Number of phone  |
+| phone.area_code  | string  | true | Phone area code, eg: +63  |
+| phone.number  | string  | true | Phone number  |
 
 #### Response
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| message  | string  | Error message, an empty string will be returned if there is no error |
-| code  | string  | Error code, an empty string will be returned if there is no error  |
-| user_token  | string  | Token of agent  |
+| message  | string  | Error message: If no error occurs, an empty string will be returned. |
+| code  | string  | Error code: If no error occurs, an empty string will be returned.  |
+| user_token  | string  | User token  |
 
 ```
 POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/public/agent/sign-in
@@ -100,26 +108,26 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/public/agent/sign-in
 }
 ```
 
-### Get plans of a pet insurance
+### Obtain pet insurance plan options
 
 ### Auth
-add token in http header
+Include token in HTTP header
 ```
 X-Axinan-Authorization:Bearer {TOKEN}
 ```
 #### Response
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| message  | string  | Error message, an empty string will be returned if there is no error |
-| code  | string  | Error code, an empty string will be returned if there is no error  |
+| message  | string  | Error message: If no error occurs, an empty string will be returned. |
+| code  | string  | Error code: If no error occurs, an empty string will be returned.  |
 | plans  | [Plan]  | Plans, it's an array  |
 
 #### Response.Plan
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| name  | string  | Error message, an empty string will be returned if there is no error |
+| name  | string  | Error message: If no error occurs, an empty string will be returned. |
 | product_key  | string  | Product key  |
-| plan_key  | [Plan]  | Plan key  |
+| plan_key  | string  | Plan key  |
 
 
 ```
@@ -150,7 +158,7 @@ GET https://api.qa.iglooinsure.com/v1/agency-platform-ph/agency/pet/plans
 
 ### Fast quote
 ### Auth
-add token in http header
+Include token in HTTP header
 ```
 X-Axinan-Authorization:Bearer {TOKEN}
 ```
@@ -182,7 +190,7 @@ Request
 {
     "fast_quote": {
         "object": {
-            "name": "Name of dog"
+            "name": "name"
         }
     }
 }
@@ -205,7 +213,7 @@ Response
 ### Application
 
 ### Auth
-add token in http header
+Include token in HTTP header
 ```
 X-Axinan-Authorization:Bearer {TOKEN}
 ```
@@ -242,7 +250,7 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | gender  | string(male,female) | true | Gender |
 | id_type  | string | true | Id type, eg: `Philippine Passport`,`SSS ID or SSS UMID Card`,`GSIS ID or GSIS UMID Card`,`Driver's License`,`PRC ID` |
 | id_number  | string | true | Id number |
-| phone.area_code  | string | true | Area code of phone |
+| phone.area_code  | string | true | Phone area code |
 | phone.number  | string | true | Number phone |
 | email  | string | true | Email |
 
@@ -367,10 +375,11 @@ Response
 }
 ```
 
-### Get payment
+### Get payment methods
+Upon retrieving the payment options, select one of them to proceed with your payment.
 
 ### Auth
-add token in http header
+Include token in HTTP header
 ```
 X-Axinan-Authorization:Bearer {TOKEN}
 ```
@@ -389,7 +398,7 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | Name  | Type |  Description |
 | ------------- | ------------- | ------------- |
 | transaction_id  | string | Transaction id |
-| payment_url  | string | Payment URL, open this URL in a webbrowser for payment  |
+| payment_url  | string | Payment URL: Open this URL in a web browser to initiate the payment process.  |
 
 
 ```
