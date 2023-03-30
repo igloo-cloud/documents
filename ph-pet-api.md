@@ -7,8 +7,7 @@
 4. Prior to purchasing, you have the option to obtain a preliminary quote with minimal information. Alternatively, you can proceed directly to the buying process if you prefer.
 5. To utilize the FastQuote and Application APIs, ensure that you provide the Token acquired from the login API within the HTTP header of your request.
 
-
-## Send a verification code to an email
+## Send email verification code
 
 #### Request
 | Name  | Type | Required | Description |
@@ -32,7 +31,7 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/agency/public/email_ve
 }
 ```
 
-## Sign up an Agent
+## Agent Sign-Up
 #### Request
 | Name  | Type | Required | Description |
 | ------------- | ------------- | ------------- | ------------- |
@@ -71,7 +70,8 @@ POST https://api.qa.iglooinsure.com/v1/agency-platform-ph/public/agent/sign-up
 }
 ```
 
-### Sign in an Agent
+### Agent Sign-In
+
 #### Request
 | Name  | Type | Required | Description |
 | ------------- | ------------- | ------------- | ------------- |
@@ -387,12 +387,12 @@ X-Axinan-Authorization:Bearer {TOKEN}
 #### Request
 | Name  | Type | Required | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| application_id  | string  | true | The id of an application(from the response of `Application`) |
+| application_id  | string  | true | Application ID (retrieved from the response of the `Application` API) |
 
 #### Response
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| payments  | [Payment] | Array of payment methods |
+| payments  | [Payment] | List of payment methods |
 
 #### Payment
 | Name  | Type |  Description |
