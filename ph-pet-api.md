@@ -228,6 +228,8 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | ------------- | ------------- | ------------- | ------------- |
 | object  | Object | true | Pet |
 | policyholder  | Object | true | Policyholder |
+| payment  | Payment | false | If you prefer to pay with cash, you can select that payment option and then generate a transaction ID. Once you have the transaction ID,
+simply insert it in this field. |
 
 #### Application.object(pet)
 | Name  | Type | Required | Description |
@@ -253,6 +255,11 @@ X-Axinan-Authorization:Bearer {TOKEN}
 | phone.area_code  | string | true | Phone area code |
 | phone.number  | string | true | Number phone |
 | email  | string | true | Email |
+
+#### Application.payment
+| Name  | Type |  Description |
+| ------------- | ------------- | ------------- |
+| transaction_id  | string | Transaction id |
 
 #### Response
 | Name  | Type | Description |
